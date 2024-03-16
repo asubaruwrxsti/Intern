@@ -19,7 +19,6 @@ db.open_connection()
 @app.post("/post/form")
 async def create_user(User: User):
     query = f"INSERT INTO users (fname, lname) VALUES ('{User.fname}', '{User.lname}')"
-    print(query)
     db.execute_query(query)
     return {"message": "Inserted successfully"}
 
