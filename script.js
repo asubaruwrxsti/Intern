@@ -26,11 +26,12 @@ function submitGetForm() {
 
     if (fname === '' || lname === '') {
         alert('Please fill in all fields');
+    } else {
+        let res = fetch(`http://localhost:8000/get/form?fname=${fname}&lname=${lname}`);
+        res.then((response) => {
+            return response.json();
+        }).then((data) => {
+            alert(data.message);
+        });
     }
-    let res = fetch(`http://localhost:8000/get/form?fname=${fname}&lname=${lname}`);
-    res.then((response) => {
-        return response.json();
-    }).then((data) => {
-        alert(data.message);
-    });
 }
