@@ -32,7 +32,7 @@ async def create_user(fname: str, lname: str):
 @app.get("/get/all")
 async def read_users():
     query = "SELECT * FROM users"
-    rows = db.execute_read_query(query)
+    rows = db.execute_query(query)
     return {"users": rows}
 
 if __name__ == "__main__":
